@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="basicstruts2" extends="struts-default"
+		namespace="/">
+		<default-action-ref name="main" />
+		
+		<action name="index"
+			class="org.apache.struts.helloworld.action.HelloWorldAction" method="index">
+			<result name="success">/HelloWorld.jsp</result>
+		</action>
+		<action name="main">
+			<result>/main.jsp</result>
+		</action>
+		<action name="query-tab">
+			<result name="success">/query.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="manage-tab" class="lab2.AuthorInfoQuery" method="queryAuthor">
+			<result name="success">/manage.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="history-tab" class="lab2.History" method="queryHistory">
+			<result name="success">/history.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="about-tab">
+			<result>/about.jsp</result>
+		</action>
+		<action name="query-book" class="lab2.BookInfoQuery" method="test">
+			<result name="success">/query-result.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="query-author" class="lab2.AuthorInfoQuery" method="queryAuthor">
+			<result name="success">/query-result.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="query-all-books" class="lab2.BookInfoQuery" method="getAllBookByAuthor">
+			<result name="success">/query-result.jsp</result>
+			<result name="error">/fail.jsp</result>
+		</action>
+		<action name="delete-book" class="lab2.Book" method="deleteBook">
+			<result name="success">/delete-success.jsp</result>
+		</action>
+		<action name="add-new-book" class="lab2.Book" method="addNewBook">
+			<result name="success">/add-success.jsp</result>
+			<result name="error">/add-fail.jsp</result>
+		</action>
+		<action name="add-new-author" class="lab2.Author" method="addNewAuthor">
+			<result name="success">/add-success.jsp</result>
+			<result name="error">/add-fail.jsp</result>
+		</action>
+		<action name="rand-books" class="lab2.BookInfoQuery" method="randBooks">
+			<result>/query-result.jsp</result>
+		</action>
+		<action name="update-book" class="lab2.Book" method="updateBook">
+			<result name="success">/update-success.jsp</result>
+			<result name="error">/update-fail.jsp</result>
+		</action>
+		<action name="page-test">
+			<result>/add-success.jsp</result>
+		</action>
+	</package>
+</struts>
